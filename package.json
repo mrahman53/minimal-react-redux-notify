@@ -1,0 +1,91 @@
+{
+  "name": "minimal-react-redux-notify",
+  "version": "1.0.0",
+  "description": "Syntactic Sugar providing a minimal fixed set of notification styles from react-redux-notify.",
+  "main": "./lib/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/MinmalReactReduxNotify.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/MinimalReactReduxNotify.min.js",
+    "build:lib": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=lib babel src --out-dir lib",
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "clean": "rimraf dist lib coverage npm-debug.log",
+    "prepublish": "npm run clean && npm run build",
+    "start": "opener chrome ./examples/index.html && npm run build:umd -- --watch",
+    "deploy": "publish",
+    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
+  },
+  "pre-commit": [
+    "build"
+  ],
+  "keywords": [
+    "react-component",
+    "notifications",
+    "react",
+    "reactjs",
+    "react notifications",
+    "notify",
+    "redux notifications"
+  ],
+  "author": "Charles Fulnecky <cfulnecky@gmail.com> (http://github.com/cmelion)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmelion/minimal-react-redux-notify.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.2.9",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-plugin-webpack-loaders": "^0.7.1",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-runtime": "^6.11.6",
+    "cross-env": "^2.0.1",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb-base": "^7.1.0",
+    "eslint-import-resolver-webpack": "^0.5.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "opener": "^1.4.2",
+    "pre-commit": "^1.1.3",
+    "publish": "^0.6.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-redux-notify": "1.0.8",
+    "react-test-renderer": "^15.3.1",
+    "redux": "^3.6.0",
+    "rimraf": "^2.5.4",
+    "timekeeper": "^0.1.1",
+    "webpack": "^1.13.2"    
+  },
+  "dependencies": {
+
+  },
+  "peerDependencies": {
+    "react": ">= 15.0.0 < 16.0.0",
+    "react-redux": ">= 4.0.0 < 6.0.0",
+    "redux": ">= 3.0.0 < 4.0.0",
+    "react-redux-notify": "1.0.8"
+  },
+  "bugs": {
+    "url": "https://github.com/cmelion/minimal-react-redux-notify/issues"
+  }
+}

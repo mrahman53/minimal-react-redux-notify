@@ -1,0 +1,23 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "env": {
+        "jest": true
+    },
+    "rules": {
+        "no-underscore-dangle": 0,
+        "react/jsx-uses-vars": "error",
+        "react/jsx-pascal-case": "error",
+        "react/jsx-uses-react": "error",
+        "new-cap": 0,
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    },
+    "settings":{
+        "import/resolver": "webpack"
+    }    
+}
