@@ -98,7 +98,7 @@ export default function configureStore() {
 
 ```
 
-4) Pass to your app level provider
+(4) Pass to your app level provider
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -145,7 +145,7 @@ ReactDOM.render(
 
 ```
 
-(4) Then use as side-effects in your epics like so:
+(5) Then use as side-effects in your epics like so:
 
 ```javascript
 import {newNotification, NOTIFICATION_TYPE_SUCCESS, REMOVE_ALL_NOTIFICATIONS} from 'minimal-react-redux-notify';

@@ -1,6 +1,6 @@
 {
   "name": "minimal-react-redux-notify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Syntactic Sugar providing a minimal fixed set of notification styles from react-redux-notify.",
   "main": "./lib/index.js",
   "files": [
