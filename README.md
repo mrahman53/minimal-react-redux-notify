@@ -1,8 +1,9 @@
 # minimal-react-redux-notify
 A minimalistic notifications component built with [react-redux-notify](https://github.com/deep-c/react-redux-notify) and intended for use with [redux-observable](https://github.com/redux-observable/redux-observable).
 
-![A quick look.](http://i.giphy.com/l0HlQkInwts6lR1zq.gif)
+![A quick look at react-redux-notify.](http://i.giphy.com/l0HlQkInwts6lR1zq.gif)
 
+note: To get the full set of features above you will need to use the full version of react-redux-notify.
 
 ## Overview and Install
 Minimal react redux notify is a simple component for displaying notifications in your redux-observable apps. You can simply include the component within your app. Easiest way to get up and running is to install it via npm.
