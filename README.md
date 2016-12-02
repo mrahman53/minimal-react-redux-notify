@@ -13,7 +13,7 @@ npm install minimal-react-redux-notify --save
 
 After which you simply add the built in epic to your store:
 
-root-epic
+1) define your root-epic
 ```javascript
 import {combineEpics} from 'redux-observable';
 
@@ -30,7 +30,7 @@ export default combineEpics(
 );
 ```
 
-root-reducer
+2) define your root-reducer
 ```javascript
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
@@ -51,7 +51,7 @@ export default combineReducers(
 
 ```
 
-store
+3) inject them into your store
 ```javascript
 
 import {createStore, applyMiddleware} from 'redux';
@@ -97,7 +97,54 @@ export default function configureStore() {
 
 ```
 
-Then use in your components like so:
+4) pass to your app level provider
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {persistStore} from 'redux-persist';
+
+import configureStore from './store';
+
+// Containers
+import Home from './containers/home';
+import Login from './containers/login';
+
+// Components
+import {Root} from './root';
+
+const store = configureStore();
+persistStore(store, {blacklist: ['error', 'routing', 'loggingIn', 'notifications']}, () => {
+    //re-hydration complete
+    // Perform pre-login initialization here
+});
+
+const history = syncHistoryWithStore(
+    browserHistory,
+    store
+);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={Root}>
+                <IndexRoute component={Home}/>
+                <Route path="home" component={Home}/>
+                <Route path="login" component={Login}/>
+            </Route>
+        </Router>
+    </Provider>,
+    document.querySelector('.app')
+)
+;
+
+
+
+```
+
+Then use as side-effects in your epics like so:
 
 ```javascript
 import {newNotification, NOTIFICATION_TYPE_SUCCESS, REMOVE_ALL_NOTIFICATIONS} from 'minimal-react-redux-notify';
