@@ -14,7 +14,7 @@ npm install minimal-react-redux-notify --save
 
 After which you simply add the built in epic to your store:
 
-1) define your root-epic
+(1) Define your root-epic
 ```javascript
 import {combineEpics} from 'redux-observable';
 
@@ -31,7 +31,7 @@ export default combineEpics(
 );
 ```
 
-2) define your root-reducer
+(2) Define your root-reducer
 ```javascript
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
@@ -52,7 +52,7 @@ export default combineReducers(
 
 ```
 
-3) inject them into your store
+(3) Inject them into your store
 ```javascript
 
 import {createStore, applyMiddleware} from 'redux';
@@ -98,7 +98,7 @@ export default function configureStore() {
 
 ```
 
-4) pass to your app level provider
+4) Pass to your app level provider
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -145,7 +145,7 @@ ReactDOM.render(
 
 ```
 
-Then use as side-effects in your epics like so:
+(4) Then use as side-effects in your epics like so:
 
 ```javascript
 import {newNotification, NOTIFICATION_TYPE_SUCCESS, REMOVE_ALL_NOTIFICATIONS} from 'minimal-react-redux-notify';
