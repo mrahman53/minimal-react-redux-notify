@@ -13,14 +13,11 @@
     "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/MinmalReactReduxNotify.js",
     "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/MinimalReactReduxNotify.min.js",
     "build:lib": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=lib babel src --out-dir lib",
-    "test": "cross-env NODE_ENV=test jest --verbose",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "clean": "rimraf dist lib coverage npm-debug.log",
-    "prepublish": "npm run clean && npm run build",
-    "start": "opener chrome ./examples/index.html && npm run build:umd -- --watch",
-    "deploy": "publish",
-    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
+    "shipit": "npm run clean && npm run build && scripts/preprepublish.sh && npm publish",
+    "start": "opener chrome ./examples/index.html && npm run build:umd -- --watch"
   },
   "pre-commit": [
     "build"
