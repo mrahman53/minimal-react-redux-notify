@@ -161,4 +161,10 @@ const loggedInEpic = action$ =>
 
 ```
 
+## Development
+New versions can be published to npm via: 
+```javascript
+npm run shipit
+```
+
 
