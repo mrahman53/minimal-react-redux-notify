@@ -34,7 +34,7 @@
   "author": "Charles Fulnecky <cfulnecky@gmail.com> (http://github.com/cmelion)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cmelion/minimal-react-redux-notify.git"
+    "url": "https://github.com/HBOCodeLabs/minimal-react-redux-notify.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -82,6 +82,6 @@
     "react-redux-notify": "1.0.8"
   },
   "bugs": {
-    "url": "https://github.com/cmelion/minimal-react-redux-notify/issues"
+    "url": "https://github.com/HBOCodeLabs/minimal-react-redux-notify/issues"
   }
 }
