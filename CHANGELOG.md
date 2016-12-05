@@ -1,3 +1,8 @@
+<a name="1.0.9"></a>
+## [1.0.9](https://github.com/HBOCodeLabs/minimal-react-redux-notify/compare/v1.0.7...v1.0.9) (2016-12-05)
+
+
+
 <a name="1.0.7"></a>
 ## [1.0.7](https://github.com/HBOCodeLabs/minimal-react-redux-notify/compare/v1.0.6...v1.0.7) (2016-12-05)
 
