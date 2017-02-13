@@ -145,6 +145,22 @@ ReactDOM.render(
 
 ```
 
+You will also need to add the Notify component at the top level of your app.
+For example:
+```javascript
+import React from 'react';
+import {Notify} from 'react-redux-notify';
+import Header from './containers/header';
+
+export const Root = ({children}) =>
+    <div>
+        {children}
+        <Header />
+        <Notify />
+    </div>;
+
+```
+
 (5) Then use as side-effects in your epics like so:
 
 ```javascript
